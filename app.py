@@ -3,6 +3,7 @@ import os
 import zipfile
 from pathlib import Path
 from typing import Optional
+import logging
 
 import requests
 from fastapi import FastAPI, UploadFile, Form, HTTPException, File, Query
@@ -10,8 +11,24 @@ from fastapi.responses import StreamingResponse, JSONResponse
 
 from helper import compile_pbi_from_zip, zip_path_contents
 
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="PBI Compiler Service", version="1.0.0")
+
+@app.on_event("startup")
+async def startup_event():
+    logger.info("🚀 PBI Compiler Service starting up")
+    logger.info(f"PORT environment variable: {os.getenv('PORT', 'not set')}")
+    logger.info(f"PBI_TOOLS_PATH: {os.getenv('PBI_TOOLS_PATH', 'not set')}")
+    logger.info(f"PBI_TOOLS_EXECUTABLE: {os.getenv('PBI_TOOLS_EXECUTABLE', 'not set')}")
+    pbi_tools_path = os.getenv('PBI_TOOLS_PATH')
+    if pbi_tools_path:
+        logger.info(f"PBI Tools directory exists: {os.path.exists(pbi_tools_path)}")
+        if os.path.exists(pbi_tools_path):
+            logger.info(f"PBI Tools directory contents: {os.listdir(pbi_tools_path)}")
+    logger.info("✅ Startup complete")
 
 
 @app.get("/health")

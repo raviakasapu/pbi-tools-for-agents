@@ -1,5 +1,5 @@
 # Optional: Build pbi-tools as a .NET Global Tool
-FROM python:3.13-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -35,4 +35,4 @@ ENV PATH="/app/.venv/bin:/pbi-tools:$PATH" \
 EXPOSE 8008
 
 # Use PORT if provided by the platform (e.g., Railway), default to 8008 locally
-CMD ["/bin/sh","-c",".venv/bin/uvicorn app:app --host 0.0.0.0 --port ${PORT:-8008}"]
+CMD ["/bin/sh","-c","echo 'Starting uvicorn on port '${PORT:-8008} && .venv/bin/uvicorn app:app --host 0.0.0.0 --port ${PORT:-8008} --log-level info"]
