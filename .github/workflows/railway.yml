@@ -1,0 +1,41 @@
+name: Deploy to Railway
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node (for Railway CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Railway CLI
+        run: npm i -g @railway/cli
+
+      - name: Deploy to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
+          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
+          RAILWAY_SERVICE_NAME: ${{ secrets.RAILWAY_SERVICE_NAME }}
+          RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
+          RAILWAY_ENVIRONMENT_NAME: ${{ secrets.RAILWAY_ENVIRONMENT_NAME }}
+        run: |
+          set -euo pipefail
+          echo "Railway CLI version:" && railway --version || true
+          PROJECT_ARGS=""
+          if [[ -n "${RAILWAY_PROJECT_ID:-}" ]]; then PROJECT_ARGS+=" --project ${RAILWAY_PROJECT_ID}"; fi
+          if [[ -n "${RAILWAY_ENVIRONMENT_ID:-}" ]]; then PROJECT_ARGS+=" --environment ${RAILWAY_ENVIRONMENT_ID}"; elif [[ -n "${RAILWAY_ENVIRONMENT_NAME:-}" ]]; then PROJECT_ARGS+=" --environment ${RAILWAY_ENVIRONMENT_NAME}"; fi
+          SERVICE_ARG=""
+          if [[ -n "${RAILWAY_SERVICE_ID:-}" ]]; then SERVICE_ARG=" --service ${RAILWAY_SERVICE_ID}"; elif [[ -n "${RAILWAY_SERVICE_NAME:-}" ]]; then SERVICE_ARG=" --service ${RAILWAY_SERVICE_NAME}"; fi
+          railway link ${PROJECT_ARGS} ${SERVICE_ARG} || true
+          railway up ${PROJECT_ARGS} ${SERVICE_ARG}
+

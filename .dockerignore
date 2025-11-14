@@ -1,0 +1,16 @@
+__pycache__
+.venv
+.git
+.gitignore
+*.pyc
+*.pyo
+*.pyd
+*.log
+**/.DS_Store
+dist
+build
+tests
+README.md
+Dockerfile
+.dockerignore
+assets/pbi-tools/*.pdb
