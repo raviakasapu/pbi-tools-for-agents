@@ -7,10 +7,10 @@ Supports two input modes:
 - Provide a URL to a ZIP file to fetch and compile.
 
 
-Returns a ZIP response containing:
-- The compiled `.pbit` file
-- `compile-output.txt` (captured console output)
-- `extracted.zip` (optional, the working folder used during compilation)
+Returns plain-text compile output:
+- The raw `pbi-tools` console output (stdout/stderr) as `text/plain`.
+  - Includes license banner, progress, errors, and final status lines (e.g., "PBIT file written to: ...").
+  - The API no longer returns the compiled `.pbit` or any ZIP bundle.
 
 ## Requirements
 
@@ -49,34 +49,27 @@ Build a demo ZIP with a minimal `pbit/` folder and send it to the service, or ca
 cd compile-tests
 ./build_demo_zip.sh
 
-# Upload and get result.zip back
 curl -X POST http://localhost:8008/compile \
-  -F "file=@compile-tests/demo_pbit.zip" \
-  -F "name=demo" \
-  -o result.zip
+  -F "file=@compile-tests/demo_pbit.zip"
 
 # Or call the built-in demo endpoint (no upload needed)
-curl -L -o result.zip "http://localhost:8008/compile/demo?name=demo"
+curl "http://localhost:8008/compile/demo?name=demo"
 ```
 
 Note: This is a minimal fixture intended to test the service path and logging. The pbi-tools compile step may return logs without producing a valid .pbit file if the folder content is incomplete for a real report.
 
-4. Test with cURL (file upload):
+4. Test with cURL (file upload returns logs as text):
 
 ```bash
 curl -X POST http://localhost:8008/compile \
-  -F "file=@/path/to/your.zip" \
-  -F "name=my_report" \
-  -o result.zip
+  -F "file=@/path/to/your.zip"
 ```
 
 Or by URL:
 
 ```bash
 curl -X POST http://localhost:8008/compile \
-  -F "url=https://example.com/your.zip" \
-  -F "name=my_report" \
-  -o result.zip
+  -F "url=https://example.com/your.zip"
 ```
 
 ## Docker
@@ -121,6 +114,7 @@ Supplying pbi-tools in CI/CD:
 
 - The root of the ZIP should contain a `pbit/` directory with contents compatible with `pbi-tools compile -folder <pbit_dir>`.
 - If the ZIP root does not have `pbit/`, the service tries to find the first subdirectory that does.
+- The service outputs the compilation log text; clients should parse the result to determine success (e.g., search for "PBIT file written to:").
 
 ## Notes
 

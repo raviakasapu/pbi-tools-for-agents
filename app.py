@@ -8,7 +8,7 @@ import logging
 
 import requests
 from fastapi import FastAPI, UploadFile, Form, HTTPException, File, Query
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse, JSONResponse, PlainTextResponse
 
 from helper import compile_pbi_from_zip, zip_path_contents
 
@@ -71,23 +71,21 @@ def compile_endpoint(
     name: Optional[str] = Form(default=None),
     return_extracted: bool = Form(default=True),
 ):
+    """Accepts a ZIP (upload or URL), runs pbi-tools compile, and returns logs as text."""
     if not file and not url:
         raise HTTPException(status_code=400, detail="Provide either a file upload or a url.")
 
     # Load ZIP into memory
     data = io.BytesIO()
-    src_name = "result"
     try:
         if file:
             file.file.seek(0)
             data.write(file.file.read())
-            src_name = Path(getattr(file, 'filename', 'result')).stem
         else:
             resp = requests.get(url, timeout=60)
             if resp.status_code != 200:
                 raise HTTPException(status_code=400, detail=f"Failed to download ZIP from URL: HTTP {resp.status_code}")
             data.write(resp.content)
-            src_name = Path(url).stem or "result"
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Failed to read ZIP: {e}")
 
@@ -98,22 +96,13 @@ def compile_endpoint(
     except zipfile.BadZipFile:
         raise HTTPException(status_code=400, detail="Uploaded content is not a valid ZIP.")
 
-    # Compile
+    # Compile and return logs only
     timeout = int(os.getenv('WORK_TIMEOUT_SECONDS', '120'))
     data.seek(0)
     pbit, extracted, logs = compile_pbi_from_zip(data, timeout_seconds=timeout)
 
-    if not pbit and not extracted:
-        raise HTTPException(status_code=500, detail=f"Compilation failed. Logs: {logs}")
-
-    # Build response ZIP
-    res_name = name or src_name or 'result'
-    res_zip = _make_result_zip(pbit, extracted if return_extracted else None, logs, res_name)
-
-    headers = {
-        'Content-Disposition': f'attachment; filename="{res_zip.name}"'
-    }
-    return StreamingResponse(res_zip, media_type='application/zip', headers=headers)
+    # Always return the compile output as plain text; status code 200
+    return PlainTextResponse(content=logs or "", media_type="text/plain")
 
 
 @app.get("/compile/demo")
@@ -131,9 +120,5 @@ def compile_demo(name: Optional[str] = Query(default="demo")):
     timeout = int(os.getenv('WORK_TIMEOUT_SECONDS', '120'))
     pbit, extracted, logs = compile_pbi_from_zip(demo_zip, timeout_seconds=timeout)
 
-    # Build response ZIP like /compile
-    res_zip = _make_result_zip(pbit, extracted, logs, name or 'demo')
-    headers = {
-        'Content-Disposition': f'attachment; filename="{res_zip.name}"'
-    }
-    return StreamingResponse(res_zip, media_type='application/zip', headers=headers)
+    # Return compile logs as plain text
+    return PlainTextResponse(content=logs or "", media_type="text/plain")
