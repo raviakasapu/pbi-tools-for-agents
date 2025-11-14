@@ -32,6 +32,7 @@ ENV PATH="/app/.venv/bin:/pbi-tools:$PATH" \
     PBI_TOOLS_PATH="/pbi-tools" \
     PBI_TOOLS_EXECUTABLE="pbi-tools.core"
 
-EXPOSE 8000
+EXPOSE 8008
 
-CMD [".venv/bin/uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use PORT if provided by the platform (e.g., Railway), default to 8008 locally
+CMD ["/bin/sh","-c",".venv/bin/uvicorn app:app --host 0.0.0.0 --port ${PORT:-8008}"]

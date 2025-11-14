@@ -5,10 +5,10 @@ from pathlib import Path
 from typing import Optional
 
 import requests
-from fastapi import FastAPI, UploadFile, Form, HTTPException, File
+from fastapi import FastAPI, UploadFile, Form, HTTPException, File, Query
 from fastapi.responses import StreamingResponse, JSONResponse
 
-from helper import compile_pbi_from_zip
+from helper import compile_pbi_from_zip, zip_path_contents
 
 
 app = FastAPI(title="PBI Compiler Service", version="1.0.0")
@@ -83,6 +83,29 @@ def compile_endpoint(
     res_name = name or src_name or 'result'
     res_zip = _make_result_zip(pbit, extracted if return_extracted else None, logs, res_name)
 
+    headers = {
+        'Content-Disposition': f'attachment; filename="{res_zip.name}"'
+    }
+    return StreamingResponse(res_zip, media_type='application/zip', headers=headers)
+
+
+@app.get("/compile/demo")
+def compile_demo(name: Optional[str] = Query(default="demo")):
+    demo_dir = Path(__file__).parent / "compile-tests" / "demo_pbit"
+    if not demo_dir.exists():
+        raise HTTPException(status_code=500, detail=f"Demo directory not found at {demo_dir}. Is it included in the image?")
+
+    # Create an in-memory ZIP of the demo folder, then compile using the same pipeline
+    try:
+        demo_zip = zip_path_contents(demo_dir)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to prepare demo ZIP: {e}")
+
+    timeout = int(os.getenv('WORK_TIMEOUT_SECONDS', '120'))
+    pbit, extracted, logs = compile_pbi_from_zip(demo_zip, timeout_seconds=timeout)
+
+    # Build response ZIP like /compile
+    res_zip = _make_result_zip(pbit, extracted, logs, name or 'demo')
     headers = {
         'Content-Disposition': f'attachment; filename="{res_zip.name}"'
     }

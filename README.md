@@ -38,22 +38,25 @@ pip install -r requirements.txt
 3. Run the API:
 
 ```bash
-uvicorn app:app --host 0.0.0.0 --port 8000
+uvicorn app:app --host 0.0.0.0 --port 8008
 ```
 
 ## Demo Compile
 
-Build a demo ZIP with a minimal `pbit/` folder and send it to the service:
+Build a demo ZIP with a minimal `pbit/` folder and send it to the service, or call the built-in demo endpoint:
 
 ```bash
 cd compile-tests
 ./build_demo_zip.sh
 
 # Upload and get result.zip back
-curl -X POST http://localhost:8000/compile \
+curl -X POST http://localhost:8008/compile \
   -F "file=@compile-tests/demo_pbit.zip" \
   -F "name=demo" \
   -o result.zip
+
+# Or call the built-in demo endpoint (no upload needed)
+curl -L -o result.zip "http://localhost:8008/compile/demo?name=demo"
 ```
 
 Note: This is a minimal fixture intended to test the service path and logging. The pbi-tools compile step may return logs without producing a valid .pbit file if the folder content is incomplete for a real report.
@@ -61,7 +64,7 @@ Note: This is a minimal fixture intended to test the service path and logging. T
 4. Test with cURL (file upload):
 
 ```bash
-curl -X POST http://localhost:8000/compile \
+curl -X POST http://localhost:8008/compile \
   -F "file=@/path/to/your.zip" \
   -F "name=my_report" \
   -o result.zip
@@ -70,7 +73,7 @@ curl -X POST http://localhost:8000/compile \
 Or by URL:
 
 ```bash
-curl -X POST http://localhost:8000/compile \
+curl -X POST http://localhost:8008/compile \
   -F "url=https://example.com/your.zip" \
   -F "name=my_report" \
   -o result.zip
@@ -82,7 +85,7 @@ Build and run locally:
 
 ```bash
 docker build -t pbi-compiler-service .
-docker run --rm -p 8000:8000 pbi-compiler-service
+docker run --rm -p 8008:8008 pbi-compiler-service
 ```
 
 ## Railway Deployment
