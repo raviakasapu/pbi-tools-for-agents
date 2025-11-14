@@ -1,4 +1,5 @@
 import io
+import json
 import os
 import zipfile
 from pathlib import Path
@@ -39,6 +40,15 @@ def health():
 def _make_result_zip(pbit: Optional[io.BytesIO], extracted: Optional[io.BytesIO], logs: Optional[str], name: str) -> io.BytesIO:
     out = io.BytesIO()
     with zipfile.ZipFile(out, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
+        # Add compilation status summary
+        status_info = {
+            "compilation_successful": pbit is not None,
+            "compiled_file_included": pbit is not None,
+            "source_files_included": extracted is not None,
+            "output_name": name
+        }
+        zf.writestr("compilation-status.json", json.dumps(status_info, indent=2))
+        
         if pbit:
             pbit.seek(0)
             # Prefer provided name, then fall back to the buffer's name
@@ -108,7 +118,7 @@ def compile_endpoint(
 
 @app.get("/compile/demo")
 def compile_demo(name: Optional[str] = Query(default="demo")):
-    demo_dir = Path(__file__).parent / "compile-tests" / "demo_pbit"
+    demo_dir = Path(__file__).parent / "compile-tests" / "pbit"
     if not demo_dir.exists():
         raise HTTPException(status_code=500, detail=f"Demo directory not found at {demo_dir}. Is it included in the image?")
 

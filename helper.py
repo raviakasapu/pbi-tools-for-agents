@@ -101,6 +101,11 @@ def perform_pbi_compilation(root_directory: str | os.PathLike | Path, file_name:
     return buffer, extracted_files, console_output
 
 
+def _has_pbixproj_structure(path: Path) -> bool:
+    """Check if a directory contains Power BI project structure (Model and/or Report folders)."""
+    return (path / 'Model').exists() or (path / 'Report').exists()
+
+
 def compile_pbi_from_zip(zip_file: io.BytesIO, timeout_seconds: int = 60) -> Tuple[
     Optional[io.BytesIO], Optional[io.BytesIO], Optional[str]
 ]:
@@ -111,25 +116,43 @@ def compile_pbi_from_zip(zip_file: io.BytesIO, timeout_seconds: int = 60) -> Tup
         zf.extractall(temp_dir)
 
         extracted_path = Path(temp_dir).resolve()
-        direct_pbit_dir = extracted_path / 'pbit'
-        if direct_pbit_dir.exists() and direct_pbit_dir.is_dir():
+        pbit_dir = None
+        root_dir = None
+        
+        # Strategy 1: Check if extracted_path itself has the pbixproj structure
+        if _has_pbixproj_structure(extracted_path):
+            pbit_dir = extracted_path
             root_dir = extracted_path
-            pbit_dir = direct_pbit_dir
+        # Strategy 2: Check if there's a 'pbit' folder that contains the structure
+        elif (extracted_path / 'pbit').exists() and (extracted_path / 'pbit').is_dir():
+            if _has_pbixproj_structure(extracted_path / 'pbit'):
+                pbit_dir = extracted_path / 'pbit'
+                root_dir = extracted_path
+        # Strategy 3: Look in subdirectories
         else:
             directories = [item for item in extracted_path.iterdir() if item.is_dir()]
-            root_dir = None
             for directory in directories:
-                pbit_path = directory / 'pbit'
-                if pbit_path.exists() and pbit_path.is_dir():
+                # Check if directory has pbixproj structure directly
+                if _has_pbixproj_structure(directory):
+                    pbit_dir = directory
                     root_dir = directory
                     break
-            if not root_dir and len(directories) >= 1:
+                # Check if directory has a 'pbit' subfolder with the structure
+                pbit_path = directory / 'pbit'
+                if pbit_path.exists() and pbit_path.is_dir() and _has_pbixproj_structure(pbit_path):
+                    pbit_dir = pbit_path
+                    root_dir = directory
+                    break
+            
+            # Fallback: use first directory
+            if not pbit_dir and len(directories) >= 1:
+                pbit_dir = directories[0]
                 root_dir = directories[0]
-            if not root_dir:
-                return None, None, "No suitable directory found in ZIP (missing 'pbit/')."
-            pbit_dir = root_dir / 'pbit'
+        
+        if not pbit_dir or not root_dir:
+            return None, None, "No suitable Power BI project directory found in ZIP (missing 'Model' or 'Report' folders)."
 
-        output_file_name = Path(root_dir).stem + ".pbit"
+        output_file_name = Path(pbit_dir).stem + ".pbit"
         console_output, _ = compile_pbit_from_pbi_tools(
             directory=str(pbit_dir), output_file_name=output_file_name, timeout_seconds=timeout_seconds
         )
