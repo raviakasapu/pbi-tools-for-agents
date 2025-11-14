@@ -1,0 +1,38 @@
+{
+  "version": "5.59",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "type": 2,
+      "version": "5.61"
+    }
+  },
+  "activeSectionIndex": 0,
+  "defaultDrillFilterOtherVisuals": true,
+  "linguisticSchemaSyncVersion": 2,
+  "settings": {
+    "useNewFilterPaneExperience": true,
+    "allowChangeFilterTypes": true,
+    "useStylableVisualContainerHeader": true,
+    "queryLimitOption": 6,
+    "exportDataMode": 1,
+    "useDefaultAggregateDisplayName": true,
+    "useEnhancedTooltips": true
+  },
+  "objects": {
+    "section": [    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

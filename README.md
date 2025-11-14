@@ -41,6 +41,23 @@ pip install -r requirements.txt
 uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
+## Demo Compile
+
+Build a demo ZIP with a minimal `pbit/` folder and send it to the service:
+
+```bash
+cd compile-tests
+./build_demo_zip.sh
+
+# Upload and get result.zip back
+curl -X POST http://localhost:8000/compile \
+  -F "file=@compile-tests/demo_pbit.zip" \
+  -F "name=demo" \
+  -o result.zip
+```
+
+Note: This is a minimal fixture intended to test the service path and logging. The pbi-tools compile step may return logs without producing a valid .pbit file if the folder content is incomplete for a real report.
+
 4. Test with cURL (file upload):
 
 ```bash

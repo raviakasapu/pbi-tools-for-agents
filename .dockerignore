@@ -10,6 +10,7 @@ __pycache__
 dist
 build
 tests
+compile-tests
 README.md
 Dockerfile
 .dockerignore

@@ -1,0 +1,2115 @@
+table DimCustomer
+
+
+    column 'CustomerKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: CustomerKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'GeographyKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: GeographyKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CustomerAlternateKey'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: CustomerAlternateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Title'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Title
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FirstName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FirstName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'MiddleName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: MiddleName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'LastName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: LastName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'NameStyle'
+        dataType: boolean
+        summarizeBy: none
+        sourceColumn: NameStyle
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'BirthDate'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: BirthDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'MaritalStatus'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: MaritalStatus
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Suffix'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Suffix
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Gender'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Gender
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EmailAddress'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EmailAddress
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'YearlyIncome'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: YearlyIncome
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'TotalChildren'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: TotalChildren
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'NumberChildrenAtHome'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: NumberChildrenAtHome
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EnglishEducation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EnglishEducation
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SpanishEducation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SpanishEducation
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FrenchEducation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FrenchEducation
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EnglishOccupation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EnglishOccupation
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SpanishOccupation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SpanishOccupation
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FrenchOccupation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FrenchOccupation
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'HouseOwnerFlag'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: HouseOwnerFlag
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'NumberCarsOwned'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: NumberCarsOwned
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'AddressLine1'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: AddressLine1
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'AddressLine2'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: AddressLine2
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Phone'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Phone
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DateFirstPurchase'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: DateFirstPurchase
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CommuteDistance'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: CommuteDistance
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Arabic Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Arabic Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Birth Date'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Birth Date'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Calendar Quarter'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Calendar Quarter'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Calendar Semester'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Calendar Semester'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Calendar Year'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Calendar Year'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Carrier Tracking Number'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Carrier Tracking Number'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Chinese Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Chinese Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Commute Distance'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Commute Distance'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Currency Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Currency Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Customer Alternate Key'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Customer Alternate Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Customer Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Customer Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Customer PO Number'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Customer PO Number'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Date First Purchase'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Date First Purchase'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Date Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Date Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Day Number Of Month'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Day Number Of Month'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Day Number Of Week'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Day Number Of Week'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Day Number Of Year'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Day Number Of Year'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Days To Manufacture'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Days To Manufacture'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Dealer Price'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Dealer Price'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Discount Amount'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Discount Amount'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Due Date Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Due Date Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Due Date'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Due Date'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Email Address'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Email Address'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'End Date'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'End Date'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'English Day Name Of Week'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'English Day Name Of Week'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'English Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'English Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'English Education'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'English Education'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'English Month Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'English Month Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'English Occupation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'English Occupation'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'English Product Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'English Product Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Extended Amount'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Extended Amount'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Finished Goods Flag'
+        dataType: boolean
+        summarizeBy: none
+        sourceColumn: 'Finished Goods Flag'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'First Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'First Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Fiscal Quarter'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Fiscal Quarter'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Fiscal Semester'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Fiscal Semester'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Fiscal Year'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Fiscal Year'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'French Day Name Of Week'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'French Day Name Of Week'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'French Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'French Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'French Education'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'French Education'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'French Month Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'French Month Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'French Occupation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'French Occupation'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'French Product Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'French Product Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Full Date Alternate Key'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Full Date Alternate Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Geography Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Geography Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'German Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'German Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Hebrew Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Hebrew Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'House Owner Flag'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'House Owner Flag'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Japanese Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Japanese Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Large Photo'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Large Photo'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Last Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Last Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'List Price'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'List Price'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Marital Status'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Marital Status'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Middle Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Middle Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Model Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Model Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Month Number Of Year'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Month Number Of Year'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Name Style'
+        dataType: boolean
+        summarizeBy: none
+        sourceColumn: 'Name Style'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Number Cars Owned'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Number Cars Owned'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Number Children At Home'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Number Children At Home'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Order Date Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Order Date Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Order Date'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Order Date'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Order Quantity'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Order Quantity'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Product Alternate Key'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Product Alternate Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Product Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Product Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Product Line'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Product Line'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Product Standard Cost'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Product Standard Cost'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Product Subcategory Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Product Subcategory Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Promotion Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Promotion Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Reorder Point'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Reorder Point'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Revision Number'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Revision Number'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Safety Stock Level'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Safety Stock Level'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Sales Amount'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Sales Amount'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Sales Order Line Number'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Sales Order Line Number'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Sales Order Number'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Sales Order Number'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Sales Territory Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Sales Territory Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Ship Date Key'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Ship Date Key'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Ship Date'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Ship Date'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Size Range'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Size Range'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Size Unit Measure Code'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Size Unit Measure Code'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Spanish Day Name Of Week'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Spanish Day Name Of Week'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Spanish Education'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Spanish Education'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Spanish Month Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Spanish Month Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Spanish Occupation'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Spanish Occupation'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Spanish Product Name'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Spanish Product Name'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Standard Cost'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Standard Cost'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Start Date'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: 'Start Date'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Tax Amt'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Tax Amt'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Thai Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Thai Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Total Children'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Total Children'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Total Product Cost'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Total Product Cost'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Turkish Description'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Turkish Description'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Unit Price Discount Pct'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Unit Price Discount Pct'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Unit Price'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Unit Price'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Week Number Of Year'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: 'Week Number Of Year'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Weight Unit Measure Code'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: 'Weight Unit Measure Code'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Yearly Income'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: 'Yearly Income'
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DimCustomer'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: DimCustomer
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DimDate'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: DimDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DimProduct'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: DimProduct
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FactInternetSales'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FactInternetSales
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ProductKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: ProductKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'OrderDateKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: OrderDateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DueDateKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: DueDateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ShipDateKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: ShipDateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'PromotionKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: PromotionKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CurrencyKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: CurrencyKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SalesTerritoryKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: SalesTerritoryKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SalesOrderNumber'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SalesOrderNumber
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SalesOrderLineNumber'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: SalesOrderLineNumber
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'RevisionNumber'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: RevisionNumber
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'OrderQuantity'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: OrderQuantity
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'UnitPrice'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: UnitPrice
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ExtendedAmount'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: ExtendedAmount
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'UnitPriceDiscountPct'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: UnitPriceDiscountPct
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DiscountAmount'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: DiscountAmount
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ProductStandardCost'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: ProductStandardCost
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'TotalProductCost'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: TotalProductCost
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SalesAmount'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: SalesAmount
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'TaxAmt'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: TaxAmt
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Freight'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: Freight
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CarrierTrackingNumber'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: CarrierTrackingNumber
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CustomerPONumber'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: CustomerPONumber
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'OrderDate'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: OrderDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DueDate'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: DueDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ShipDate'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: ShipDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DateKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: DateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FullDateAlternateKey'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FullDateAlternateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DayNumberOfWeek'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: DayNumberOfWeek
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EnglishDayNameOfWeek'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EnglishDayNameOfWeek
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SpanishDayNameOfWeek'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SpanishDayNameOfWeek
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FrenchDayNameOfWeek'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FrenchDayNameOfWeek
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DayNumberOfMonth'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: DayNumberOfMonth
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DayNumberOfYear'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: DayNumberOfYear
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'WeekNumberOfYear'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: WeekNumberOfYear
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EnglishMonthName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EnglishMonthName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SpanishMonthName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SpanishMonthName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FrenchMonthName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FrenchMonthName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'MonthNumberOfYear'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: MonthNumberOfYear
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CalendarQuarter'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: CalendarQuarter
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CalendarYear'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: CalendarYear
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'CalendarSemester'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: CalendarSemester
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FiscalQuarter'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: FiscalQuarter
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FiscalYear'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: FiscalYear
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FiscalSemester'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: FiscalSemester
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ProductAlternateKey'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: ProductAlternateKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ProductSubcategoryKey'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: ProductSubcategoryKey
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'WeightUnitMeasureCode'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: WeightUnitMeasureCode
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SizeUnitMeasureCode'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SizeUnitMeasureCode
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EnglishProductName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EnglishProductName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SpanishProductName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SpanishProductName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FrenchProductName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FrenchProductName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'StandardCost'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: StandardCost
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FinishedGoodsFlag'
+        dataType: boolean
+        summarizeBy: none
+        sourceColumn: FinishedGoodsFlag
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Color'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Color
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SafetyStockLevel'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: SafetyStockLevel
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ReorderPoint'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: ReorderPoint
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ListPrice'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: ListPrice
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Size'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Size
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'SizeRange'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: SizeRange
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Weight'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: Weight
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DaysToManufacture'
+        dataType: int64
+        summarizeBy: sum
+        sourceColumn: DaysToManufacture
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ProductLine'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: ProductLine
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'DealerPrice'
+        dataType: double
+        summarizeBy: sum
+        sourceColumn: DealerPrice
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Class'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Class
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Style'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Style
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ModelName'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: ModelName
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'LargePhoto'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: LargePhoto
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EnglishDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: EnglishDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'FrenchDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: FrenchDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ChineseDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: ChineseDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ArabicDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: ArabicDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'HebrewDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: HebrewDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'ThaiDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: ThaiDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'GermanDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: GermanDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'JapaneseDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: JapaneseDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'TurkishDescription'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: TurkishDescription
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'StartDate'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: StartDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'EndDate'
+        dataType: dateTime
+        summarizeBy: none
+        sourceColumn: EndDate
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Status'
+        dataType: string
+        summarizeBy: none
+        sourceColumn: Status
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+    column 'Full Name' = ```
+            '/* TABLEAU FORMULA: [FirstName] + '' '' + [LastName] */ BLANK()'
+    ```
+        dataType: string
+        summarizeBy: none
+
+        
+
+        annotation SummarizationSetBy = Automatic
+
+        
+
+    measure 'Customer Sales Rank' = ```
+            /* TABLEAU FORMULA: RANK(SUM([SalesAmount]),'desc') */ BLANK()
+    ```
+
+
+        annotation PBI_FormatHint = {"isGeneralNumber":true}
+        
+    measure 'Top 10 Cust' = ```
+            /* TABLEAU FORMULA: [Calculation_1406249040082657283] <= [Parameters].[Parameter 1] */ BLANK()
+    ```
+
+
+        annotation PBI_FormatHint = {"isGeneralNumber":true}
+        
+
+
+    partition 'DimCustomer' = m
+        mode: import
+        source = 
+            let
+                Source = Odbc.DataSource("Driver={ODBC Driver};Server=your_server;Database=;", [HierarchicalNavigation=true]),
+                ExecuteQuery = Value.NativeQuery(Source, "SELECT * FROM ""DimCustomer""", null, [EnableFolding=true]),
+                #"Removed Errors" = Table.RemoveRowsWithErrors(ExecuteQuery)
+            in
+                #"Removed Errors"
+        
+
+
+
+    annotation PBI_ResultType = Table

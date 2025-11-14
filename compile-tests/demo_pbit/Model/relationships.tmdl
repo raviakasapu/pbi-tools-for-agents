@@ -1,0 +1,21 @@
+relationship 51df2c69-0152-4f33-8c3a-39ee3e5a15fd
+	fromColumn: FactInternetSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+	crossFilteringBehavior: BothDirections
+	fromCardinality: many
+	isActive: true
+
+
+relationship e9cd9ab7-2815-4d2b-b975-ca7c6a58b654
+	fromColumn: FactInternetSales.ProductKey
+	toColumn: DimProduct.ProductKey
+	crossFilteringBehavior: BothDirections
+	fromCardinality: many
+	isActive: true
+
+relationship 7a2796d3-299c-43f4-bccc-5874a4dc6b90
+	fromColumn: FactInternetSales.OrderDateKey
+	toColumn: DimDate.DateKey
+	crossFilteringBehavior: BothDirections
+	fromCardinality: many
+	isActive: true

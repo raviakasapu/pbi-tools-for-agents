@@ -1,0 +1,43 @@
+table Parameters
+    /// Disconnected parameter table for 'Top 10 Customers'
+    /// Domain Type: range | Data Type: int64
+    /// Use with slicer for dynamic parameter selection
+    column 'Parameter 1'
+        dataType: int64
+        summarizeBy: none
+        sourceColumn: 'Parameter 1'
+
+        annotation SummarizationSetBy = User
+
+        annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+
+
+    partition Parameters = m
+        mode: import
+        source = 
+            let
+                Min = 1,
+                Max = 10,
+                Step = 1,
+                Count = Number.RoundDown((Max - Min) / Step) + 1,
+                L = List.Transform({0..Count-1}, each Min + _ * Step),
+                T0 = Table.FromList(L, Splitter.SplitByNothing(), {"Parameter 1"}),
+                Typed = Table.TransformColumnTypes(T0, { {"Parameter 1", Int64.Type} })
+            in
+                Typed
+        
+
+    annotation PBI_ResultType = Table
+
+    annotation PBI_NavigationStepName = Navigation
+
+    annotation __PBI_ParameterTable = 
+        {
+          "parameterName": "Parameter 1",
+          "parameterCaption": "Top 10 Customers",
+          "parameterDatatype": "int64",
+          "domainType": "range",
+          "defaultValue": 10,
+          "tableauInternalName": "Parameter 1"
+        }
