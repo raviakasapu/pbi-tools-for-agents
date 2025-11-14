@@ -1,10 +1,4 @@
 # Optional: Build pbi-tools as a .NET Global Tool
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dotnet
-RUN dotnet tool install -g pbi-tools || true
-
-# Runtime for .NET tools
-FROM mcr.microsoft.com/dotnet/runtime:8.0 AS dotnetruntime
-
 FROM python:3.13-slim
 
 WORKDIR /app
@@ -33,14 +27,10 @@ RUN if [ -n "$PBI_TOOLS_URL" ]; then \
   && if [ -d "assets/pbi-tools" ]; then mkdir -p /pbi-tools && cp -r assets/pbi-tools/* /pbi-tools/; fi \
   && if [ -f "/pbi-tools/pbi-tools.core" ]; then chmod +x /pbi-tools/pbi-tools.core; fi
 
-# Add .NET runtime and the pbi-tools global tool (if present in builder)
-COPY --from=dotnetruntime /usr/share/dotnet /usr/share/dotnet
-COPY --from=dotnet /root/.dotnet/tools /root/.dotnet/tools
-
-ENV PATH="/app/.venv/bin:/pbi-tools:/root/.dotnet/tools:/usr/share/dotnet:$PATH" \
+ENV PATH="/app/.venv/bin:/pbi-tools:$PATH" \
     LD_LIBRARY_PATH="/pbi-tools:${LD_LIBRARY_PATH}" \
     PBI_TOOLS_PATH="/pbi-tools" \
-    PBI_TOOLS_EXECUTABLE=""
+    PBI_TOOLS_EXECUTABLE="pbi-tools.core"
 
 EXPOSE 8000
 
