@@ -3,9 +3,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install minimal deps (curl useful for debugging)
+# Install minimal deps and .NET runtime for pbi-tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates curl unzip \
+    ca-certificates curl unzip wget \
+  && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+  && dpkg -i packages-microsoft-prod.deb \
+  && rm packages-microsoft-prod.deb \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends dotnet-runtime-8.0 \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy app
